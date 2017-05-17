@@ -255,7 +255,15 @@ public class PokerTableController implements Initializable {
 			TranslateTransition transT = CreateTranslateTransition(pntDeck, pntCardDealt, img);
 
 			RotateTransition rotT = CreateRotateTransition(img);
+			rotT.setCycleCount(3);
+			
+			
 			ScaleTransition scaleT = CreateScaleTransition(img);
+			scaleT.setByX(0.7);
+			scaleT.setByY(0.7);
+
+			
+			
 			PathTransition pathT = CreatePathTransition(pntDeck,
 			 pntCardDealt, img);
 
@@ -301,7 +309,6 @@ public class PokerTableController implements Initializable {
 		path.getElements().add(new MoveTo(fromPoint.getX(), fromPoint.getY()));
 		path.getElements().add(new CubicCurveTo(toPoint.getX() * 2, toPoint.getY() * 2, toPoint.getX() / 3,
 				toPoint.getY() / 3, toPoint.getX(), toPoint.getY()));
-		// path.getElements().add(new CubicCurveTo(0, 120, 0, 240, 380, 240));
 		PathTransition pathTransition = new PathTransition();
 		pathTransition.setDuration(Duration.millis(750));
 		pathTransition.setPath(path);
@@ -316,9 +323,9 @@ public class PokerTableController implements Initializable {
 
 	private ScaleTransition CreateScaleTransition(ImageView img) {
 		ScaleTransition st = new ScaleTransition(Duration.millis(iAnimationLength), img);
-		st.setByX(.25f);
-		st.setByY(.25f);
-		st.setCycleCount((int) 1f);
+		st.setByX(.5f);
+		st.setByY(.5f);
+		st.setCycleCount((int) 3f);
 		st.setAutoReverse(true);
 
 		return st;
@@ -327,8 +334,8 @@ public class PokerTableController implements Initializable {
 	private RotateTransition CreateRotateTransition(ImageView img) {
 
 		RotateTransition rotateTransition = new RotateTransition(Duration.millis(iAnimationLength/2), img);
-		rotateTransition.setByAngle(180F);
-		rotateTransition.setCycleCount(2);
+		rotateTransition.setByAngle(360F);
+		rotateTransition.setCycleCount(1);
 		rotateTransition.setAutoReverse(false);
 
 		return rotateTransition;
@@ -381,7 +388,7 @@ public class PokerTableController implements Initializable {
 		FadeTransition ft = new FadeTransition(Duration.millis(iAnimationLength), btn);
 		ft.setFromValue(1.0);
 		ft.setToValue(0.3);
-		ft.setCycleCount(4);
+		ft.setCycleCount(2);
 		ft.setAutoReverse(true);
 
 		ft.play();
