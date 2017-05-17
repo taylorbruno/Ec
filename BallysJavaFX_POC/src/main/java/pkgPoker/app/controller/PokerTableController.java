@@ -41,7 +41,6 @@ import pkgPoker.app.MainApp;
 
 public class PokerTableController implements Initializable {
 
-	// Reference to the main application.
 	private MainApp mainApp;
 
 	public PokerTableController() {
